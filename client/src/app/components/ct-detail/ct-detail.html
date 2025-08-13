@@ -1,0 +1,41 @@
+<div class="container my-4" *ngIf="data">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="fw-bold m-0">Work Center {{ data.id }}</h2>
+    <a routerLink="/home" class="btn btn-outline-secondary">Voltar</a>
+  </div>
+
+  <!-- KPIs -->
+  <div class="row g-3 mb-4">
+    <div class="col-6 col-md">
+      <app-kpi-tile [icon]="faListCheck" [value]="data.disponiveis" label="OPs disponíveis"></app-kpi-tile>
+    </div>
+    <div class="col-6 col-md">
+      <app-kpi-tile [icon]="faDiagramProject" [value]="data.pendentes" label="OPs pendentes" [danger]="true"></app-kpi-tile>
+    </div>
+    <div class="col-6 col-md">
+      <app-kpi-tile [icon]="faBullseye" [value]="data.urgentes" label="OPs urgentes" [danger]="true"></app-kpi-tile>
+    </div>
+    <div class="col-6 col-md">
+      <app-kpi-tile [icon]="faClock" [value]="data.horasDisponiveis" label="Horas disponíveis"></app-kpi-tile>
+    </div>
+    <div class="col-6 col-md">
+      <app-kpi-tile [icon]="faCrosshairs" [value]="data.agingMax" label="Aging máximo"></app-kpi-tile>
+    </div>
+  </div>
+
+  <div class="row g-4 align-items-start mb-3">
+    <div class="col-12 col-lg-6">
+      <app-ct-hours [label]="'T500'"
+                    [current]="data.hoursCurrent"
+                    [target]="data.hoursTarget">
+      </app-ct-hours>
+    </div>
+    <div class="col-12 col-lg-6 d-flex justify-content-lg-end align-items-center">
+      <button class="btn btn-outline-success d-flex align-items-center gap-2" (click)="exportCsv()">
+        <fa-icon [icon]="faFileExcel"></fa-icon> Export CSV
+      </button>
+    </div>
+  </div>
+
+  <app-ct-orders-table [orders]="orders" [pageSize]="5"></app-ct-orders-table>
+</div>

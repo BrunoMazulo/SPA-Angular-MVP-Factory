@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #092d3e;">
+    <div class="container">
+      <a class="navbar-brand menu" routerLink="/home/cts"><fa-icon [icon]="faHome"></fa-icon> HOME</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse  justify-content-center" id="navbarSupportedContent">
+
+        <form class="d-flex w-50 mx-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar centro de trabalho" aria-label="Search"/>
+          <button class="btn btn-outline-secondary" type="submit">Pesquisar</button>
+        </form>
+
+      </div>
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0 menu-grande">
+        <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/games/add"><fa-icon [icon]="faCalendar"> </fa-icon>{{today}}</a>
+        </li>
+    </ul>
+    </div>
+  </nav>
+  
